@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Orbital Shop
+
+A modern, responsive ecommerce storefront for thoughtfully curated electronics, gadgets, and smart-home products.
+
+<!-- Replace YOUR_DEPLOYMENT_URL with the verified production URL before publishing. -->
+**[Live Demo](YOUR_DEPLOYMENT_URL)** · **[Repository](https://github.com/hishamk1999/orbital-shop)**
+
+![Orbital Shop homepage featuring electronics categories and curated product cards](./public/images/website-shot.png)
+
+## About
+
+Orbital Shop is a polished frontend shopping experience designed to make discovering useful technology feel simple. It combines a spacious, premium homepage with a practical product catalogue for browsing devices across work, home, audio, gaming, and everyday carry.
+
+## Highlights
+
+- Responsive storefront with a curated, promotion-led homepage
+- Searchable product catalogue with category and price filters
+- Featured, newest, rating, and price-based sorting
+- URL-driven filters and pagination with shareable catalogue states
+- Responsive filter drawer and dedicated loading, empty, and error states
+- Interactive favourites and cart feedback on the homepage
+- Semantic, keyboard-accessible controls with visible focus states
+- Feature-based architecture built on the Next.js App Router
+
+## Tech Stack
+
+- [Next.js 16](https://nextjs.org/) and [React 19](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS 4](https://tailwindcss.com/)
+- [Framer Motion](https://motion.dev/)
+- [Base UI](https://base-ui.com/) and [Radix Icons](https://www.radix-ui.com/icons)
+- [Vitest](https://vitest.dev/) and [Testing Library](https://testing-library.com/)
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) 20 or later
+- [pnpm](https://pnpm.io/) 10
+
+### Run locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+git clone https://github.com/hishamk1999/orbital-shop.git
+cd orbital-shop
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the storefront.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Description |
+| --- | --- |
+| `pnpm dev` | Start the local development server |
+| `pnpm build` | Create a production build |
+| `pnpm start` | Run the production build |
+| `pnpm lint` | Check the project with ESLint |
+| `pnpm typecheck` | Run TypeScript without emitting files |
+| `pnpm test:run` | Run the Vitest test suite once |
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```text
+orbital-shop/
+├── public/
+│   └── images/          # Repository and storefront imagery
+└── src/
+    ├── app/             # Next.js routes and app-level files
+    ├── features/        # Domain-owned pages, components, data, and tests
+    └── shared/          # Reusable UI, layouts, and utilities
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Author
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Designed and built by [Hisham Khaled](https://www.hishamkhaled.com/).
