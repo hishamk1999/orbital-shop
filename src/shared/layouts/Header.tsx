@@ -28,25 +28,53 @@ export function Header() {
           aria-label="Orbital home"
           className="flex shrink-0 items-center gap-2 text-xl font-bold tracking-[-0.06em]"
         >
-          <span className="grid size-8 place-items-center rounded-xl bg-primary-bright text-sm text-white">o</span>
+          <div className="flex items-center justify-center size-8 rounded-xl bg-primary-bright">
+            <span className="inline-block h-7.75 text-xl font-normal text-white">o</span>
+          </div>
           orbital<span className="text-primary-bright">.</span>
         </Link>
-        <nav className="hidden items-center gap-7 text-sm font-medium text-slate-600 lg:flex" aria-label="Primary navigation">
-          <Link className="text-foreground" href="/shop">Shop</Link>
-          <Link className="hover:text-foreground" href="/#collections">Collections</Link>
-          <Link className="hover:text-foreground" href="/#deals">Deals</Link>
-          <Link className="hover:text-foreground" href="/#about">About</Link>
+        <nav
+          className="hidden items-center gap-7 text-sm font-medium text-slate-600 lg:flex"
+          aria-label="Primary navigation"
+        >
+          <Link className="text-foreground" href="/shop">
+            Shop
+          </Link>
+          <Link className="hover:text-foreground" href="/#collections">
+            Collections
+          </Link>
+          <Link className="hover:text-foreground" href="/#deals">
+            Deals
+          </Link>
+          <Link className="hover:text-foreground" href="/#about">
+            About
+          </Link>
         </nav>
         <form action="/shop" className="relative ml-auto hidden max-w-sm flex-1 md:block">
-          <label className="sr-only" htmlFor="header-search">Search products</label>
+          <label className="sr-only" htmlFor="header-search">
+            Search products
+          </label>
           <MagnifyingGlassIcon className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-slate-400" />
-          <Input id="header-search" name="q" placeholder="Search devices, gear, and more" className="rounded-full bg-slate-100 pl-10 shadow-none" />
+          <Input
+            id="header-search"
+            name="q"
+            placeholder="Search devices, gear, and more"
+            className="rounded-full bg-slate-100 pl-10 shadow-none"
+          />
         </form>
         <div className="ml-auto flex items-center gap-1 md:ml-0">
-          <Link aria-label="Wishlist" href="/shop" className="hidden rounded-full p-3 text-slate-600 hover:bg-slate-100 sm:inline-flex">
+          <Link
+            aria-label="Wishlist"
+            href="/shop"
+            className="hidden rounded-full p-3 text-slate-600 hover:bg-slate-100 sm:inline-flex"
+          >
             <HeartIcon className="size-5" />
           </Link>
-          <Link aria-label="Shopping bag" href="/shop" className="rounded-full p-3 text-slate-600 hover:bg-slate-100">
+          <Link
+            aria-label="Shopping bag"
+            href="/shop"
+            className="rounded-full p-3 text-slate-600 hover:bg-slate-100"
+          >
             <BackpackIcon className="size-5" />
           </Link>
           <span className="hidden sm:block">
@@ -61,22 +89,44 @@ export function Header() {
             onClick={() => setMenuOpen((open) => !open)}
             className="grid size-11 place-items-center rounded-full text-slate-700 hover:bg-slate-100 lg:hidden"
           >
-            {menuOpen ? <Cross2Icon className="size-5" /> : <HamburgerMenuIcon className="size-5" />}
+            {menuOpen ? (
+              <Cross2Icon className="size-5" />
+            ) : (
+              <HamburgerMenuIcon className="size-5" />
+            )}
           </button>
         </div>
       </Container>
       {menuOpen && (
         <div className="border-t border-slate-100 bg-white px-5 py-5 lg:hidden">
-          <nav className="grid gap-4 text-sm font-medium text-slate-700" aria-label="Mobile navigation">
-            <Link href="/shop" onClick={() => setMenuOpen(false)}>Shop</Link>
-            <Link href="/#collections" onClick={() => setMenuOpen(false)}>Collections</Link>
-            <Link href="/#deals" onClick={() => setMenuOpen(false)}>Deals</Link>
-            <Link href="/#about" onClick={() => setMenuOpen(false)}>About</Link>
+          <nav
+            className="grid gap-4 text-sm font-medium text-slate-700"
+            aria-label="Mobile navigation"
+          >
+            <Link href="/shop" onClick={() => setMenuOpen(false)}>
+              Shop
+            </Link>
+            <Link href="/#collections" onClick={() => setMenuOpen(false)}>
+              Collections
+            </Link>
+            <Link href="/#deals" onClick={() => setMenuOpen(false)}>
+              Deals
+            </Link>
+            <Link href="/#about" onClick={() => setMenuOpen(false)}>
+              About
+            </Link>
           </nav>
           <form action="/shop" className="relative mt-5 md:hidden">
-            <label className="sr-only" htmlFor="mobile-header-search">Search products</label>
+            <label className="sr-only" htmlFor="mobile-header-search">
+              Search products
+            </label>
             <MagnifyingGlassIcon className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-slate-400" />
-            <Input id="mobile-header-search" name="q" placeholder="Search products" className="rounded-full bg-slate-100 pl-10" />
+            <Input
+              id="mobile-header-search"
+              name="q"
+              placeholder="Search products"
+              className="rounded-full bg-slate-100 pl-10"
+            />
           </form>
         </div>
       )}
