@@ -3,7 +3,7 @@
 A modern, responsive ecommerce storefront for thoughtfully curated electronics, gadgets, and smart-home products.
 
 <!-- Replace YOUR_DEPLOYMENT_URL with the verified production URL before publishing. -->
-**[Live Demo](YOUR_DEPLOYMENT_URL)** · **[Repository](https://orbital-shop.hishamkhaled.com)**
+**[Live Demo](https://orbital-shop.hishamkhaled.com)** · **[Repository](https://github.com/hishamk1999/orbital-shop)**
 
 ![Orbital Shop homepage featuring electronics categories and curated product cards](./public/images/website-shot.png)
 
