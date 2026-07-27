@@ -11,7 +11,7 @@ import {
 import Link from "next/link";
 import { useState } from "react";
 
-import { Button, Input } from "@/shared/components";
+import { Input } from "@/shared/components";
 import { Container } from "./Container";
 
 export function Header() {
@@ -77,11 +77,12 @@ export function Header() {
           >
             <BackpackIcon className="size-5" />
           </Link>
-          <span className="hidden sm:block">
-            <Button variant="dark" className="h-10 min-h-10 px-4">
-              <PersonIcon /> Sign in
-            </Button>
-          </span>
+          <Link
+            href="/login"
+            className="hidden h-10 min-h-10 items-center justify-center gap-2 rounded-full bg-foreground px-4 text-sm font-semibold text-white transition-colors hover:bg-slate-700 sm:inline-flex"
+          >
+            <PersonIcon /> Sign in
+          </Link>
           <button
             type="button"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -114,6 +115,13 @@ export function Header() {
             </Link>
             <Link href="/#about" onClick={() => setMenuOpen(false)}>
               About
+            </Link>
+            <Link
+              href="/login"
+              onClick={() => setMenuOpen(false)}
+              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-foreground px-5 text-white sm:hidden"
+            >
+              <PersonIcon /> Sign in
             </Link>
           </nav>
           <form action="/shop" className="relative mt-5 md:hidden">
