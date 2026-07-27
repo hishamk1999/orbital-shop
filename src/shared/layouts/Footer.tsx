@@ -18,7 +18,7 @@ const columns = [
     links: [
       { label: "Our story", href: "/our-story" },
       { label: "Journal", href: "/shop" },
-      { label: "Careers", href: "/shop" },
+      { label: "Careers", href: "/careers" },
       { label: "Affiliates", href: "/shop" },
     ],
   },
