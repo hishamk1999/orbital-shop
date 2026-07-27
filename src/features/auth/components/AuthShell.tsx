@@ -1,4 +1,4 @@
-import { Check, LockKeyhole, PackageCheck, ShieldCheck, Sparkles } from "lucide-react";
+import { Check, LockKeyhole, PackageCheck, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
 

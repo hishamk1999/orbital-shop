@@ -4,9 +4,33 @@ import { InstagramLogoIcon, TwitterLogoIcon, LinkedInLogoIcon } from "@radix-ui/
 import { Container } from "./Container";
 
 const columns = [
-  { title: "Shop", links: ["New arrivals", "Audio", "Gaming", "Workspace"] },
-  { title: "Company", links: ["Our story", "Journal", "Careers", "Affiliates"] },
-  { title: "Help", links: ["Shipping & returns", "Track your order", "Contact", "FAQs"] },
+  {
+    title: "Shop",
+    links: [
+      { label: "New arrivals", href: "/shop" },
+      { label: "Audio", href: "/shop" },
+      { label: "Gaming", href: "/shop" },
+      { label: "Workspace", href: "/shop" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { label: "Our story", href: "/our-story" },
+      { label: "Journal", href: "/shop" },
+      { label: "Careers", href: "/shop" },
+      { label: "Affiliates", href: "/shop" },
+    ],
+  },
+  {
+    title: "Help",
+    links: [
+      { label: "Shipping & returns", href: "/shipping-returns" },
+      { label: "Track your order", href: "/shipping-returns" },
+      { label: "Contact", href: "/faqs" },
+      { label: "FAQs", href: "/faqs" },
+    ],
+  },
 ];
 
 export function Footer() {
@@ -52,10 +76,13 @@ export function Footer() {
             <div key={column.title}>
               <h2 className="text-sm font-semibold">{column.title}</h2>
               <ul className="mt-4 space-y-3">
-                {column.links.map((label) => (
-                  <li key={label}>
-                    <Link href="/shop" className="text-sm text-slate-500 hover:text-primary">
-                      {label}
+                {column.links.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-slate-500 hover:text-primary"
+                    >
+                      {link.label}
                     </Link>
                   </li>
                 ))}
