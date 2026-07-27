@@ -77,7 +77,7 @@ orbital-shop/
 
 ## Author
 
-Designed and built by [Hisham Khaled](https://www.hishamkhaled.com/)
+Designed and built by [Hisham Khaled](https://www.hishamkhaled.com/).
 
 ## License
 
