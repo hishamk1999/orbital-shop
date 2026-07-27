@@ -40,6 +40,9 @@ Orbital Shop is a polished frontend shopping experience designed to make discove
 
 ### Run locally
 
+These steps are provided for authorized evaluation only. Obtain prior written permission from
+Hisham Khaled before cloning, installing, or running this project.
+
 ```bash
 git clone https://github.com/hishamk1999/orbital-shop.git
 cd orbital-shop
@@ -75,3 +78,16 @@ orbital-shop/
 ## Author
 
 Designed and built by [Hisham Khaled](https://www.hishamkhaled.com/).
+
+## License
+
+Copyright © 2026 Hisham Khaled. All rights reserved.
+
+Orbital Shop is source-available, not open source. Its source code is publicly visible only for
+viewing and evaluation. Copying, modifying, reproducing, distributing, publishing, sublicensing,
+selling, commercially exploiting, or otherwise using this project for commercial or
+non-commercial purposes is prohibited without prior written permission from the copyright holder.
+
+No patent, trademark, copyright, or other intellectual-property rights are granted beyond the
+limited right to view the source code on the platform where it is published. See the
+[LICENSE](./LICENSE) file for the complete terms.
