@@ -68,3 +68,41 @@ export type PaginatedProducts = {
 };
 
 export type ShopSearchParams = Record<string, string | string[] | undefined>;
+
+export type ProductGalleryItem = {
+  id: string;
+  label: string;
+  tone: ProductTone;
+};
+
+export type ProductReview = {
+  id: number;
+  author: string;
+  initials: string;
+  rating: number;
+  title: string;
+  comment: string;
+  date: string;
+  verified: boolean;
+};
+
+export type ProductDetails = {
+  product: Product;
+  gallery: ProductGalleryItem[];
+  colors: Array<{
+    name: string;
+    value: string;
+  }>;
+  highlights: string[];
+  story: {
+    eyebrow: string;
+    title: string;
+    description: string;
+  };
+  specifications: Array<{
+    label: string;
+    value: string;
+  }>;
+  boxContents: string[];
+  reviews: ProductReview[];
+};

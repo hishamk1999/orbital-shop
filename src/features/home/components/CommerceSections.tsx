@@ -13,43 +13,26 @@ import {
   Sparkles,
   Star,
   Truck,
-  Zap,
 } from "lucide-react";
 import { motion } from "framer-motion";
-import { Product, ProductCard } from "./ProductCard";
+import Link from "next/link";
+
+import { catalog, ProductCard } from "@/features/products";
 import { Button } from "@/shared/components/ui/button";
 import { Input } from "@/shared/components/ui/input";
 import { Progress } from "@/shared/components/ui/progress";
 
-const trending: Product[] = [
-  {
-    id: 11,
-    name: "Orbit View Laptop Stand",
-    category: "Workspace",
-    price: 89,
-    rating: 4.8,
-    icon: Laptop,
-    tone: "bg-[#F3F4F6]",
-  },
-  {
-    id: 12,
-    name: "Vector Wireless Controller",
-    category: "Gaming",
-    price: 74,
-    rating: 4.9,
-    icon: Gamepad2,
-    tone: "bg-[#EDE9FE]",
-  },
-  {
-    id: 13,
-    name: "Nest Mini Speaker",
-    category: "Smart home",
-    price: 99,
-    rating: 4.7,
-    icon: Headphones,
-    tone: "bg-[#D1FAE5]",
-  },
-];
+const trendingProducts = catalog.filter((product) =>
+  ["drift-mouse", "nova-controller", "home-hub"].includes(product.slug),
+);
+const dealProducts = catalog.filter((product) =>
+  ["pulse-charger", "mellow-buds", "flux-controller"].includes(product.slug),
+);
+const dealProgress: Record<string, number> = {
+  "pulse-charger": 68,
+  "mellow-buds": 81,
+  "flux-controller": 52,
+};
 type SharedProps = {
   favorites: number[];
   onToggleFavorite: (id: number) => void;
@@ -80,15 +63,15 @@ export function CommerceSections({ favorites, onToggleFavorite, onAddCart }: Sha
             <p className="mt-4 max-w-md leading-7 text-slate-300">
               Practical gear with unexpected charm, selected by people who genuinely like using it.
             </p>
-            <Button
-              variant="outline"
-              className="mt-7 rounded-full border-white/25 bg-white/10 text-white hover:bg-white hover:text-[#111827]"
+            <Link
+              href="/shop?sort=rating"
+              className="mt-7 inline-flex h-10 items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 text-sm font-medium text-white transition-colors hover:bg-white hover:text-[#111827]"
             >
-              Explore the trend <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+              Explore the trend <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
           <div className="grid gap-4 sm:grid-cols-3">
-            {trending.map((product) => (
+            {trendingProducts.map((product) => (
               <ProductCard
                 key={product.id}
                 product={product}
@@ -96,6 +79,7 @@ export function CommerceSections({ favorites, onToggleFavorite, onAddCart }: Sha
                 onToggleFavorite={onToggleFavorite}
                 onAddCart={onAddCart}
                 compact
+                headingLevel="h3"
               />
             ))}
           </div>
@@ -124,61 +108,28 @@ export function CommerceSections({ favorites, onToggleFavorite, onAddCart }: Sha
             </div>
           </div>
           <div className="mt-10 grid gap-5 lg:grid-cols-3">
-            {[
-              {
-                icon: Zap,
-                name: "Pulse compact charger",
-                save: "30% off",
-                sold: 68,
-                tone: "bg-[#FED7AA]",
-              },
-              {
-                icon: Headphones,
-                name: "Mellow wireless buds",
-                save: "25% off",
-                sold: 81,
-                tone: "bg-[#D1FAE5]",
-              },
-              {
-                icon: Gamepad2,
-                name: "Flux gaming dock",
-                save: "20% off",
-                sold: 52,
-                tone: "bg-[#BFDBFE]",
-              },
-            ].map(({ icon: Icon, name, save, sold, tone }) => (
-              <article
-                key={name}
-                className="rounded-[22px] bg-white p-5 shadow-[0_8px_25px_rgba(15,23,42,0.04)]"
-              >
-                <div className={`grid h-44 place-items-center rounded-2xl ${tone}`}>
-                  <Icon className="h-20 w-20 text-[#111827]" strokeWidth={1.35} />
-                </div>
-                <div className="mt-5 flex items-start justify-between">
-                  <div>
-                    <span className="rounded-full bg-[#FEE2E2] px-2 py-1 text-xs font-bold text-[#b91c1c]">
-                      {save}
-                    </span>
-                    <h3 className="mt-3 font-semibold text-[#111827]">{name}</h3>
-                  </div>
-                  <Button
-                    size="icon-sm"
-                    onClick={() => onAddCart(100)}
-                    aria-label={`Add ${name} to cart`}
-                    className="rounded-full bg-[#111827] text-white hover:bg-[#16A34A]"
-                  >
-                    <div className="h-4 w-4" />
-                  </Button>
-                </div>
-                <div className="mt-5">
-                  <div className="mb-2 flex justify-between text-xs text-slate-500">
+            {dealProducts.map((product) => {
+              const sold = dealProgress[product.slug];
+
+              return (
+                <div key={product.id} className="flex flex-col gap-3">
+                  <ProductCard
+                    product={product}
+                    favorite={favorites.includes(product.id)}
+                    onToggleFavorite={onToggleFavorite}
+                    onAddCart={onAddCart}
+                    headingLevel="h3"
+                  />
+                  <div className="rounded-2xl bg-white px-4 py-3 shadow-sm">
+                    <div className="mb-2 flex justify-between text-xs text-slate-500">
                     <span>Claimed fast</span>
                     <span>{sold}% sold</span>
                   </div>
-                  <Progress value={sold} />
+                    <Progress value={sold} aria-label={`${sold}% of ${product.name} claimed`} />
+                  </div>
                 </div>
-              </article>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
