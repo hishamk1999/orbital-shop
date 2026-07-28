@@ -97,7 +97,7 @@ export function ProductGallery({ product, items }: ProductGalleryProps) {
       </div>
 
       <div
-        className="mt-3 flex gap-3 overflow-x-auto pb-2"
+        className="mt-3 flex gap-3 overflow-x-auto px-0.5 pt-1 pb-2"
         aria-label="Choose a product image"
       >
         {items.map((item, index) => (
